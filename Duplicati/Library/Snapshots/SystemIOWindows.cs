@@ -187,7 +187,7 @@ namespace Duplicati.Library.Snapshots
                 catch (System.IO.PathTooLongException) { }
                 catch (System.ArgumentException) { }
 
-            return Alphaleonis.Win32.Filesystem.File.Open(PrefixWithUNC(path), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            return Alphaleonis.Win32.Filesystem.File.Open(PrefixWithUNC(path), FileMode.Open, FileAccess.Read, FileShare.ReadWrite, AlphaFS.ExtendedFileAttributes.BackupSemantics, AlphaFS.PathFormat.LongFullPath);
         }
 
         public System.IO.Stream FileOpenWrite(string path)
