@@ -958,6 +958,8 @@ namespace Duplicati.Library.Main.Operation
             if (backend.HasDied)
                 throw backend.LastException;
             
+            WinNativeMethods.BackupPrivilege = true;
+                    
             try
             {
                 m_result.OperationProgressUpdater.StartFile(path, -1);            
